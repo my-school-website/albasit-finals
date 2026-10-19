@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173b5e">
+<title>مسابقات مدرسة الباسط</title>
+<style>
+:root{--navy:#173b5e;--blue:#2876b9;--bg:#f4f7fb;--ink:#183247;--muted:#657789;--line:#dce5ed;--white:#fff;--gold:#d7ad49}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.5}
+header{background:linear-gradient(135deg,#173b5e,#245e86);color:white;padding:24px 18px 20px;border-radius:0 0 24px 24px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:52px;height:52px;border-radius:15px;background:#ffffff20;display:grid;place-items:center;font-size:27px}.brand h1{font-size:22px;margin:0}.brand p{margin:3px 0 0;color:#d5e6f5;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}.stat{background:#ffffff18;padding:12px;border-radius:13px}.stat small{display:block;color:#e1ebf4;font-size:12px}.stat strong{font-size:25px}
+main{max-width:850px;margin:auto;padding:14px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}.tab{border:1px solid var(--line);background:white;color:var(--ink);border-radius:11px;padding:11px 4px;font-size:13px;font-weight:650}.tab.active{background:var(--navy);color:white;border-color:var(--navy)}
+.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:13px;box-shadow:0 3px 14px #193f5c08}.panel h2{font-size:19px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 15px}
+label{display:block;font-weight:650;font-size:13px;margin:12px 0 6px}input,select{width:100%;padding:12px;border:1px solid #cbd7e1;border-radius:10px;background:white;color:var(--ink);font-size:16px;min-height:45px}button{cursor:pointer;font:inherit}.primary{border:0;background:var(--blue);color:white;border-radius:11px;padding:12px 15px;font-weight:700;width:100%;margin-top:15px}.secondary{border:1px solid var(--line);background:white;color:var(--ink);border-radius:9px;padding:8px 11px}.danger{color:#b42318}.row{display:flex;gap:9px;align-items:center}.row>*{flex:1}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.item{border:1px solid var(--line);border-radius:13px;padding:13px;display:flex;align-items:center;gap:10px}.item .symbol{width:39px;height:39px;display:grid;place-items:center;background:#edf4fa;border-radius:11px;font-size:19px;flex-shrink:0}.item strong{display:block;font-size:14px}.item small{display:block;color:var(--muted);font-size:12px;margin-top:3px}.item button{margin-right:auto;flex-shrink:0}.empty{padding:22px;text-align:center;color:var(--muted);background:#f7f9fb;border-radius:12px;font-size:14px}.count{font-size:12px;color:var(--muted)}.hidden{display:none!important}.foot{text-align:center;color:var(--muted);font-size:12px;padding:10px 0 25px}
+@media(max-width:420px){.tabs{grid-template-columns:repeat(2,1fr)}header{padding-top:19px}.brand h1{font-size:20px}.panel{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">🏆</div><div><h1>مسابقات مدرسة الباسط</h1><p>نظام إدارة الطلبة والمشرفين والمسابقات</p></div></div>
+ <div class="stats">
+  <div class="stat"><small>الطلبة المسجلون</small><strong id="studentCount">٠</strong></div>
+  <div class="stat"><small>المشرفون</small><strong>٧</strong></div>
+  <div class="stat"><small>الشعب الدراسية</small><strong>٢٧</strong></div>
+ </div>
+</header>
+<main>
+ <nav class="tabs" aria-label="أقسام البرنامج">
+  <button class="tab active" data-tab="home">الرئيسية</button>
+  <button class="tab" data-tab="students">إضافة الطلبة</button>
+  <button class="tab" data-tab="competitions">المسابقات</button>
+  <button class="tab" data-tab="supervisors">المشرفون</button>
+ </nav>
+ <section id="home" class="page">
+  <div class="panel"><h2>مرحبًا بك</h2><p class="sub">اختر قسمًا لإدارة بيانات مدرسة الباسط. أضف أسماء الطلبة يدويًا وحدد الصف والشعبة والمشرف والمسابقة.</p>
+   <div class="cards">
+    <button class="item" data-go="students"><span class="symbol">👩‍🎓</span><span><strong>تسجيل الطلبة</strong><small>إضافة اسم الطالب وتفاصيله</small></span></button>
+    <button class="item" data-go="competitions"><span class="symbol">🏆</span><span><strong>المسابقات</strong><small>عرض المسابقات السبع</small></span></button>
+    <button class="item" data-go="supervisors"><span class="symbol">👥</span><span><strong>المشرفون</strong><small>عرض أسماء المشرفين</small></span></button>
+    <div class="item"><span class="symbol">🏫</span><span><strong>الشعب الدراسية</strong><small>الثامن ٩ · التاسع ١٠ · العاشر ٨</small></span></div>
+   </div>
+  </div>
+  <div class="panel"><h2>ملخص الشعب</h2><div class="cards">
+   <div class="item"><span class="symbol">٨</span><span><strong>الصف الثامن</strong><small>٩ شعب</small></span></div>
+   <div class="item"><span class="symbol">٩</span><span><strong>الصف التاسع</strong><small>١٠ شعب</small></span></div>
+   <div class="item"><span class="symbol">١٠</span><span><strong>الصف العاشر</strong><small>٨ شعب</small></span></div>
+  </div></div>
+ </section>
+ <section id="students" class="page hidden">
+  <div class="panel"><h2>إضافة طالب يدويًا</h2><p class="sub">أدخل بيانات الطالب ثم اضغط حفظ.</p>
+   <form id="studentForm">
+    <label for="studentName">اسم الطالب</label><input id="studentName" required maxlength="120" placeholder="اكتب اسم الطالب كاملًا">
+    <div class="row"><div><label for="grade">الصف الدراسي</label><select id="grade"><option value="الثامن">الثامن</option><option value="التاسع">التاسع</option><option value="العاشر">العاشر</option></select></div>
+    <div><label for="section">الشعبة</label><select id="section"></select></div></div>
+    <label for="supervisor">المشرف المسؤول</label><select id="supervisor"></select>
+    <label for="competition">المسابقة</label><select id="competition"></select>
+    <button class="primary" type="submit">＋ حفظ بيانات الطالب</button>
+   </form>
+  </div>
+  <div class="panel"><h2>سجل الطلبة</h2><p class="sub">تُحفظ البيانات على هذا الجهاز والمتصفح.</p>
+   <input id="studentSearch" placeholder="ابحث عن اسم طالب..." aria-label="بحث عن طالب">
+   <div id="studentList" style="margin-top:12px"></div>
+   <div class="row"><button class="secondary" id="exportBtn" type="button">تصدير نسخة CSV</button><button class="secondary danger" id="clearBtn" type="button">مسح جميع الطلبة</button></div>
+  </div>
+ </section>
+ <section id="competitions" class="page hidden"><div class="panel"><h2>المسابقات المدرسية</h2><p class="sub">اختر مسابقة لتسجيل طالب فيها.</p><div id="competitionList" class="cards"></div></div></section>
+ <section id="supervisors" class="page hidden"><div class="panel"><h2>المشرفون</h2><p class="sub">أسماء المشرفين المعتمدة.</p><div id="supervisorList" class="cards"></div></div></section>
+ <div class="foot">مدرسة الباسط · إدارة المسابقات المدرسية</div>
+</main>
+<script>
+const competitions=["الصحة المدرسية","الكشافة المدرسية","المناظرات","الإذاعة المدرسية","الروبوتات مع النادي العلمي","مسابقة أفضل عمل مرئي","القرآن الكريم"];
+const supervisors=["الأستاذ موسى البلوشي","الأستاذ عادل الفارسي","الأستاذ عبدالله الشبيبي","الأستاذ يوسف اليحمدي","الأستاذ طارق البلوشي","الأستاذ يعقوب الحارثي","الأستاذ بدر الزدجالي"];
+const icons=["🩺","⛺","💬","🎙️","🤖","🎬","📖"];
+const $=id=>document.getElementById(id);
+let students=[];
+try{students=JSON.parse(localStorage.getItem("albasit_students_v1")||"[]");if(!Array.isArray(students))students=[];}catch(e){students=[]}
+function save(){try{localStorage.setItem("albasit_students_v1",JSON.stringify(students));}catch(e){alert("تعذر حفظ البيانات في هذا المتصفح. صدّر نسخة احتياطية من بياناتك.");}renderStudents();}
+function digits(n){return String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[+d]);}
+function fillSelects(){
+ $("supervisor").innerHTML=supervisors.map(s=>`<option>${s}</option>`).join("");
+ $("competition").innerHTML=competitions.map(c=>`<option>${c}</option>`).join("");
+ updateSections();
+}
+function updateSections(){const g=$("grade").value,n=g==="الثامن"?9:g==="التاسع"?10:8;$("section").innerHTML=Array.from({length:n},(_,i)=>`<option value="${i+1}">الشعبة ${digits(i+1)}</option>`).join("");}
+function go(tab){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("hidden",p.id!==tab));document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));}
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.tab)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+$("grade").addEventListener("change",updateSections);
+$("studentForm").addEventListener("submit",e=>{e.preventDefault();const name=$("studentName").value.trim();if(!name)return;students.push({id:Date.now()+Math.random(),name,grade:$("grade").value,section:$("section").value,supervisor:$("supervisor").value,competition:$("competition").value});$("studentName").value="";save();alert("تمت إضافة الطالب إلى السجل.");});
+$("studentSearch").addEventListener("input",renderStudents);
+function renderStudents(){
+ $("studentCount").textContent=digits(students.length);
+ const q=$("studentSearch").value?.trim().toLowerCase()||"";
+ const list=students.filter(s=>s.name.toLowerCase().includes(q));
+ $("studentList").innerHTML=list.length?list.map(s=>`<div class="item" style="margin-bottom:8px"><span class="symbol">👤</span><span style="min-width:0;flex:1"><strong>${esc(s.name)}</strong><small>الصف ${esc(s.grade)} · الشعبة ${digits(s.section)}</small><small>${esc(s.competition)}</small><small>${esc(s.supervisor)}</small></span><button class="secondary danger" data-delete="${s.id}" aria-label="حذف الطالب">حذف</button></div>`).join(""):'<div class="empty">لا توجد أسماء مطابقة أو لم تتم إضافة طلبة بعد.</div>';
+ $("studentList").querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>{if(confirm("هل تريد حذف هذا الطالب؟")){students=students.filter(s=>String(s.id)!==b.dataset.delete);save();}}));
+}
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+$("competitionList").innerHTML=competitions.map((c,i)=>`<button class="item" data-comp="${esc(c)}"><span class="symbol">${icons[i]}</span><span style="text-align:right"><strong>${esc(c)}</strong><small>الطلبة المسجلون: ${digits(students.filter(s=>s.competition===c).length)}</small></span></button>`).join("");
+$("competitionList").querySelectorAll("[data-comp]").forEach(b=>b.addEventListener("click",()=>{$("competition").value=b.dataset.comp;go("students");}));
+$("supervisorList").innerHTML=supervisors.map(s=>`<div class="item"><span class="symbol">👤</span><span><strong>${esc(s)}</strong><small>الطلبة المسجلون: ${digits(students.filter(x=>x.supervisor===s).length)}</small></span></div>`).join("");
+$("clearBtn").addEventListener("click",()=>{if(confirm("هل أنت متأكد من حذف جميع أسماء الطلبة؟ لا يمكن التراجع عن ذلك.")){students=[];save();}});
+$("exportBtn").addEventListener("click",()=>{const rows=[["اسم الطالب","الصف","الشعبة","المشرف","المسابقة"],...students.map(s=>[s.name,s.grade,s.section,s.supervisor,s.competition])];const csv="\uFEFF"+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",")).join("\r\n");const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8;"}));const a=document.createElement("a");a.href=url;a.download="طلاب-مدرسة-الباسط.csv";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+fillSelects();renderStudents();
+</script>
+</body>
+</html>
